@@ -2,7 +2,7 @@
   "name": "ieee-psl-vhdl-formatter",
   "displayName": "IEEE PSL VHDL Formatter",
   "description": "Formatter for IEEE PSL (Property Specification Language) in VHDL flavor",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "repository": {"url": "https://github.com/albydnc/ieee-psl-vhdl-formatter.git"},
   "engines": {
     "vscode": "^1.118.0"
