@@ -1,0 +1,99 @@
+{
+  "name": "PSL",
+  "scopeName": "source.psl",
+  "patterns": [
+    { "include": "#comments" },
+    { "include": "#keywords" },
+    { "include": "#operators" },
+    { "include": "#strings" },
+    { "include": "#numbers" }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line.double-dash.psl",
+          "match": "--.*$"
+        },
+        {
+          "name": "comment.block.psl",
+          "begin": "/\\*",
+          "end": "\\*/"
+        }
+      ]
+    },
+    "keywords": {
+      "patterns": [
+        {
+          "name": "keyword.control.psl",
+          "match": "\\b(assert|assume|cover|restrict|fairness|strong|default|clock|property|sequence|endpoint|vmode|vprop|vunit|inherit)\\b"
+        },
+        {
+          "name": "keyword.operator.temporal.psl",
+          "match": "\\b(always|never|eventually|next|next_a|next_e|next_event|next_event_a|next_event_e|until|until_|before|before_|abort|sync_abort|async_abort|X|F|G|U|W)\\b"
+        },
+        {
+          "name": "keyword.operator.logical.psl",
+          "match": "\\b(and|or|not|xor|nand|nor|xnor)\\b"
+        },
+        {
+          "name": "keyword.other.psl",
+          "match": "\\b(prev|stable|rose|fell|onehot|onehot0|is|report|severity|if|then|else|case|for|while|in|to|downto)\\b"
+        },
+        {
+          "match": "(\\w+)\\s*:\\s*(assert|assume|cover)",
+          "captures": {
+            "1": { "name": "entity.name.tag.psl" },
+            "2": { "name": "keyword.control.psl" }
+          }}
+      ]
+    },
+    "operators": {
+      "patterns": [
+        {
+          "name": "keyword.operator.logical.psl",
+          "match": "\\b(and|or|not|xor|nand|nor|xnor)\\b|&&|\\|\\||!"
+        },
+        {
+          "name": "keyword.operator.temporal.psl",
+          "match": "->|<->|<-|=>|<=>|@|##|\\[\\*|\\[\\+|\\[=|\\|->|\\|=>"
+        },
+        {
+          "name": "keyword.operator.assignment.psl",
+          "match": ":=|<=|="
+        },
+        {
+          "name": "keyword.operator.relational.psl",
+          "match": ">=|<=|>|<|/=|="
+        }
+      ]
+    },
+    "strings": {
+      "name": "string.quoted.double.psl",
+      "begin": "\"",
+      "end": "\"",
+      "patterns": [
+        {
+          "name": "constant.character.escape.psl",
+          "match": "\\\\."
+        }
+      ]
+    },
+    "numbers": {
+      "patterns": [
+        {
+          "name": "constant.numeric.binary.psl",
+          "match": "\\b[bB]\"[01_]+\"|[01]+[bB]"
+        },
+        {
+          "name": "constant.numeric.hex.psl",
+          "match": "\\b[xX]\"[0-9a-fA-F_]+\"|[0-9a-fA-F]+[hH]"
+        },
+        {
+          "name": "constant.numeric.decimal.psl",
+          "match": "\\b[0-9][0-9_]*\\.?[0-9_]*([eE][+-]?[0-9_]+)?"
+        }
+      ]
+    }
+  }
+}
